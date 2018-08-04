@@ -62,7 +62,6 @@ main() {
       exit 1
     }
 
-
     printf "${BLUE}Looking for an existing zsh config...${NORMAL}\n"
     if [ -f ~/.zshrc ] || [ -h ~/.zshrc ]; then
       printf "${YELLOW}Found ~/.zshrc.${NORMAL} ${GREEN}Backing up to ~/.zshrc.pre-oh-my-zsh${NORMAL}\n";
@@ -157,7 +156,8 @@ main() {
   fi
   sed "/^export ZSH=/ c\\
   export ZSH=\"$ZSH\"
-  "
+  " ~/.zshrc > ~/.zshrc-omztemp
+  mv -f ~/.zshrc-omztemp ~/.zshrc
 
   printf "${GREEN}"
   echo ' ___________ __                            __         __     '
