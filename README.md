@@ -16,6 +16,8 @@ sh -c "$(wget https://raw.githubusercontent.com/Thrimbda/shell-set-up/master/ins
 
 After which...Tada! And finally you will get this! Don't worry your old `.zshrc` would have a backup as `.zshrc.back`.(if you have one.)
 
-![screen-shot](./screen_shot.png)
+![screen-shot](https://raw.githubusercontent.com/Thrimbda/shell-set-up/master/screen_shot.png)
 
 if you want to adopt my configuration, you can replace `DEFAULT_USER` variable with your username in `.zshrc` and uncomment it if you want (default is `$USER@$HOSTNAME`).
+
+finally, **Do remember install an powerline+awesome([nerd](https://github.com/ryanoasis/nerd-fonts)) font** (here are [meslo](https://raw.githubusercontent.com/Thrimbda/shell-set-up/master/font/Meslo%20LG%20M%20Regular%20Nerd%20Font%20Complete.otf) which I am using) to show all these wonderful stuff!
