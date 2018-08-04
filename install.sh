@@ -115,7 +115,7 @@ main() {
   fi
 
   if [ ! -d "$POWERLEVEL9K" ]; then
-    printf "install theme powerlevel9k into your oh-my-zsh environment"
+    printf "${BLUE}install theme powerlevel9k into your oh-my-zsh environment${NORMAL}\n"
     git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
   fi
 
@@ -125,7 +125,7 @@ main() {
   fi
 
   if [ ! -d "$AUTOSUGGESTIONS" ]; then
-    printf "install plugin auto suggestion into your oh-my-zsh environment"
+    printf "${BLUE}install plugin auto suggestion into your oh-my-zsh environment${NORMAL}\n"
     git clone https://github.com/zsh-users/zsh-autosuggestions.git $AUTOSUGGESTIONS
   fi
 
@@ -134,7 +134,7 @@ main() {
   fi
 
   if [ ! -d "$SYNTAX_HIGHLIGHTING" ]; then
-    printf "install plugin syntax highlighting into your oh-my-zsh environment"
+    printf "${BLUE}install plugin syntax highlighting into your oh-my-zsh environment${NORMAL}\n"
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $SYNTAX_HIGHLIGHTING
   fi
 
@@ -144,7 +144,7 @@ main() {
     exit
   fi
   curl -o ~/.zshrc -L https://raw.githubusercontent.com/Thrimbda/shell-set-up/master/.zshrc
-  printf "${BLUE}"
+  printf "${GREEN}"
   echo ' ___________ __                            __         __     '
   echo '/____  ____// /                           / /        / /     '
   echo '    / /    / /____  _____ ( ) __  ___    / /__  ____/ /_____ '
