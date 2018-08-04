@@ -69,13 +69,6 @@ main() {
       mv ~/.zshrc ~/.zshrc.pre-oh-my-zsh;
     fi
 
-    printf "${BLUE}Using the Oh My Zsh template file and adding it to ~/.zshrc${NORMAL}\n"
-    cp "$ZSH"/templates/zshrc.zsh-template ~/.zshrc
-    sed "/^export ZSH=/ c\\
-    export ZSH=\"$ZSH\"
-    " ~/.zshrc > ~/.zshrc-omztemp
-    mv -f ~/.zshrc-omztemp ~/.zshrc
-
     # If this user's login shell is not already "zsh", attempt to switch.
     TEST_CURRENT_SHELL=$(expr "$SHELL" : '.*/\(.*\)')
     if [ "$TEST_CURRENT_SHELL" != "zsh" ]; then
@@ -97,6 +90,7 @@ main() {
     echo '/ /_/ / / / /  / / / / / / /_/ /    / /_(__  ) / / / '
     echo '\____/_/ /_/  /_/ /_/ /_/\__, /    /___/____/_/ /_/  '
     echo '                        /____/                       ....is now installed!'
+    printf "${YELLOW}and hacked by thrimbda!${GREEN}"
     echo ''
     echo ''
     echo 'Please look over the ~/.zshrc file to select plugins, themes, and options.'
@@ -116,7 +110,10 @@ main() {
 
   if [ ! -d "$POWERLEVEL9K" ]; then
     printf "${BLUE}install theme powerlevel9k into your oh-my-zsh environment${NORMAL}\n"
-    env git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+    env git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k || {
+      printf "Error: git clone of oh-my-zsh repo failed\n"
+      exit 1
+    }
   fi
 
   # install plugins
@@ -126,7 +123,10 @@ main() {
 
   if [ ! -d "$AUTOSUGGESTIONS" ]; then
     printf "${BLUE}install plugin auto suggestion into your oh-my-zsh environment${NORMAL}\n"
-    env git clone https://github.com/zsh-users/zsh-autosuggestions.git $AUTOSUGGESTIONS
+    env git clone https://github.com/zsh-users/zsh-autosuggestions.git $AUTOSUGGESTIONS || {
+      printf "Error: git clone of zsh-autosuggestions repo failed\n"
+      exit 1
+    }
   fi
 
   if [ ! -n "$SYNTAX_HIGHLIGHTING" ]; then
@@ -135,15 +135,28 @@ main() {
 
   if [ ! -d "$SYNTAX_HIGHLIGHTING" ]; then
     printf "${BLUE}install plugin syntax highlighting into your oh-my-zsh environment${NORMAL}\n"
-    env git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $SYNTAX_HIGHLIGHTING
+    env git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $SYNTAX_HIGHLIGHTING || {
+      printf "Error: git clone of zsh-syntax-highlighting repo failed\n"
+      exit 1
+    }
+  fi
+  
+  if [ ! -d "/.zshrc" ]; then
+    printf "${BLUE}make your old .zshrc backup...${NORMAL}"
+    mv ~/.zshrc ~/.zshrc.back
   fi
 
-  # check if curl installed
-  if ! command -v curl 2>&1 >/dev/null ; then
-    printf "${YELLOW}Curl is not installed!${NORMAL} Please install curl first!\n"
+  # its obviously that people who can run this would have curl or wget.
+  if command -v curl 2>&1 >/dev/null ; then
+    curl -o ~/.zshrc -L https://raw.githubusercontent.com/Thrimbda/shell-set-up/master/.zshrc
+  elif command -v wget 2>&1 >/dev/null ; then
+    wget -O ~/.zshrc https://raw.githubusercontent.com/Thrimbda/shell-set-up/master/.zshrc
+  else
+    printf "${YELLOW}I don't know where did you get this script.${NORMAL} Please install curl or wget first!\n"
     exit
   fi
-  curl -o ~/.zshrc -L https://raw.githubusercontent.com/Thrimbda/shell-set-up/master/.zshrc
+  sed "/^export ZSH=/ c\\
+  export ZSH=\"$ZSH\"
 
   printf "${GREEN}"
   echo ' ___________ __                            __         __     '
