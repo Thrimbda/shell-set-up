@@ -107,7 +107,7 @@ main() {
   echo ''
   echo 'p.p.s. Get stickers and t-shirts at https://shop.planetargon.com.'
   echo ''
-  printf "${NORMAL}"
+  printf "${NORMAL}\n"
 
   # install theme
   if [ ! -n "$POWERLEVEL9K" ]; then
@@ -130,7 +130,7 @@ main() {
   fi
   
   if [ ! -n "$SYNTAX_HIGHLIGHTING" ]; then
-    SYNTAX_HIGHLIGHTING=$ZSH/custom/plugins/zsh-autosuggestions
+    SYNTAX_HIGHLIGHTING=$ZSH/custom/plugins/zsh-syntax-highlighting
   fi
   
   if [ ! -d "$SYNTAX_HIGHLIGHTING" ]; then
