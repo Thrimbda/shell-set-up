@@ -157,6 +157,7 @@ main() {
   fi
   sed "/^export ZSH=/ c\\
   export ZSH=\"$ZSH\"
+  "
 
   printf "${GREEN}"
   echo ' ___________ __                            __         __     '
