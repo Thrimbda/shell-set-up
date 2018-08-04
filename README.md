@@ -14,6 +14,8 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/Thrimbda/shell-set-up/mast
 sh -c "$(wget https://raw.githubusercontent.com/Thrimbda/shell-set-up/master/install.sh -O -)"
 ```
 
-if you want to adopt my configuration, please replace `DEFAULT_USER` variable in `.zshrc`.
+tada! And finally you will get this!
 
-~~maybe someday I'd update it and make this one configurable.~~
+![screen-shot](./screen_shot.png)
+
+if you want to adopt my configuration, you can replace `DEFAULT_USER` variable with your username in `.zshrc` and uncomment it.
