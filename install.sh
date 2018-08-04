@@ -141,7 +141,7 @@ main() {
     }
   fi
   
-  if [ ! -d "/.zshrc" ]; then
+  if [ -d "/.zshrc" ]; then
     printf "${BLUE}make your old .zshrc backup...${NORMAL}"
     mv ~/.zshrc ~/.zshrc.back
   fi
