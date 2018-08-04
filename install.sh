@@ -113,38 +113,45 @@ main() {
   if [ ! -n "$POWERLEVEL9K" ]; then
     POWERLEVEL9K=$ZSH/custom/themes/powerlevel9k
   fi
-  
+
   if [ ! -d "$POWERLEVEL9K" ]; then
     printf "install theme powerlevel9k into your oh-my-zsh environment"
     git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
   fi
-  
+
   # install plugins
   if [ ! -n "$AUTOSUGGESTIONS" ]; then
     AUTOSUGGESTIONS=$ZSH/custom/plugins/zsh-autosuggestions
   fi
-  
+
   if [ ! -d "$AUTOSUGGESTIONS" ]; then
     printf "install plugin auto suggestion into your oh-my-zsh environment"
     git clone https://github.com/zsh-users/zsh-autosuggestions.git $AUTOSUGGESTIONS
   fi
-  
+
   if [ ! -n "$SYNTAX_HIGHLIGHTING" ]; then
     SYNTAX_HIGHLIGHTING=$ZSH/custom/plugins/zsh-syntax-highlighting
   fi
-  
+
   if [ ! -d "$SYNTAX_HIGHLIGHTING" ]; then
     printf "install plugin syntax highlighting into your oh-my-zsh environment"
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $SYNTAX_HIGHLIGHTING
   fi
-  
+
   # check if curl installed
   if ! command -v curl 2>&1 >/dev/null ; then
     printf "${YELLOW}Curl is not installed!${NORMAL} Please install curl first!\n"
     exit
   fi
   curl -o ~/.zshrc -L https://raw.githubusercontent.com/Thrimbda/shell-set-up/master/.zshrc
-  
+  printf "${BLUE}"
+  echo ' ___________ __                            __         __     '
+  echo '/____  ____// /                           / /        / /     '
+  echo '    / /    / /____  _____ ( ) __  ___    / /__  ____/ /_____ '
+  echo '   / /    /  __  / / ___// / /  |/   |  / __  \/ __  // __  |'
+  echo '  / /    / /  / / / /   / / / /|  /| | / /_/ // /_/ // /_/  |'
+  echo ' /_/    /_/  /_/ /_/   /_/ /_/ |_/ |_| \____/ \____/ \____|_| ...empower your shell, enjoy yourself.'
+  printf "${NORMAL}"
   env zsh -l
 }
 
