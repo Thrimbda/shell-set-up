@@ -34,10 +34,11 @@ if [ -d "$ZSH" ]; then
   exit
 else
   # check if curl installed
-  if ! command -v git --version 2>&1 >/dev/null ; then
+  if ! command -v curl 2>&1 >/dev/null ; then
     printf "${YELLOW}Curl is not installed!${NORMAL} Please install curl first!\n"
     exit
   fi
+  printf "install oh-my-sh..."
   sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 fi
 
@@ -49,32 +50,35 @@ fi
 
 # install theme
 if [ ! -n "$POWERLEVEL9K" ]; then
- POWERLEVEL9K=$ZSH/custom/themes/powerlevel9k
+  POWERLEVEL9K=$ZSH/custom/themes/powerlevel9k
 fi
 
 if [ ! -d "$POWERLEVEL9K" ]; then
+  printf "install theme powerlevel9k into your oh-my-zsh environment"
   git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 fi
 
 # install plugins
 if [ ! -n "$AUTOSUGGESTIONS" ]; then
- AUTOSUGGESTIONS=$ZSH/custom/plugins/zsh-autosuggestions
+  AUTOSUGGESTIONS=$ZSH/custom/plugins/zsh-autosuggestions
 fi
 
 if [ ! -d "$AUTOSUGGESTIONS" ]; then
+  printf "install plugin auto suggestion into your oh-my-zsh environment"
   git clone https://github.com/zsh-users/zsh-autosuggestions.git $AUTOSUGGESTIONS
 fi
 
 if [ ! -n "$SYNTAX_HIGHLIGHTING" ]; then
- SYNTAX_HIGHLIGHTING=$ZSH/custom/plugins/zsh-autosuggestions
+  SYNTAX_HIGHLIGHTING=$ZSH/custom/plugins/zsh-autosuggestions
 fi
 
 if [ ! -d "$SYNTAX_HIGHLIGHTING" ]; then
-   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $SYNTAX_HIGHLIGHTING
+  printf "install plugin syntax highlighting into your oh-my-zsh environment"
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $SYNTAX_HIGHLIGHTING
 fi
 
 # check if curl installed
-if ! command -v git --version 2>&1 >/dev/null ; then
+if ! command -v curl 2>&1 >/dev/null ; then
   printf "${YELLOW}Curl is not installed!${NORMAL} Please install curl first!\n"
   exit
 fi
