@@ -68,7 +68,7 @@ main() {
       mv ~/.zshrc ~/.zshrc.pre-oh-my-zsh;
     fi
 
-    # If this user's login shell is not already "zsh", attempt to switch.
+    # If this login shell is not already "zsh", attempt to switch.
     TEST_CURRENT_SHELL=$(expr "$SHELL" : '.*/\(.*\)')
     if [ "$TEST_CURRENT_SHELL" != "zsh" ]; then
       # If this platform provides a "chsh" command (not Cygwin), do it, man!
@@ -139,7 +139,7 @@ main() {
       exit 1
     }
   fi
-  
+
   if [ -f ~/.zshrc ] || [ -h ~/.zshrc ]; then
     printf "${BLUE}make your old .zshrc backup...${NORMAL}"
     mv ~/.zshrc ~/.zshrc.back
