@@ -57,7 +57,7 @@ POWERLEVEL9K_TIME_FORMAT="%F{black}\uf017 %D{%I:%M}%f"
 POWERLEVEL9K_TIME_BACKGROUND='blue'
 
 # Items
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon context dir vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon context dir virtualenv vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs time battery)
 
 # plugins
