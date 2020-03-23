@@ -1,7 +1,7 @@
 export TERM="xterm-256color"
 export ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 POWERLEVEL9K_MODE="nerdfont-complete"
 
@@ -71,6 +71,8 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # alias
 # alias git-track="git branch -r | grep -v '\->' | while read remote; do git branch --track "${remote#origin/}" "$remote"; done"
