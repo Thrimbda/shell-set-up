@@ -103,13 +103,13 @@ main() {
 
 
   # install theme
-  if [ ! -n "$POWERLEVEL9K" ]; then
-    POWERLEVEL9K=$ZSH/custom/themes/powerlevel9k
+  if [ ! -n "$POWERLEVEL10K" ]; then
+    POWERLEVEL10K=$ZSH/custom/themes/powerlevel10k
   fi
 
-  if [ ! -d "$POWERLEVEL9K" ]; then
+  if [ ! -d "$POWERLEVEL10K" ]; then
     printf "${BLUE}install theme powerlevel9k into your oh-my-zsh environment${NORMAL}\n"
-    env git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k || {
+    env git clone https://github.com/bhilburn/powerlevel9k.git $POWERLEVEL10K || {
       printf "Error: git clone of oh-my-zsh repo failed\n"
       exit 1
     }
@@ -148,8 +148,10 @@ main() {
   # its obviously that people who can run this would have curl or wget.
   if command -v curl 2>&1 >/dev/null ; then
     curl -o ~/.zshrc -L https://raw.githubusercontent.com/Thrimbda/shell-set-up/master/.zshrc
+    curl -o ~/.p10k.zsh -L https://raw.githubusercontent.com/Thrimbda/shell-set-up/master/.p10k.zsh
   elif command -v wget 2>&1 >/dev/null ; then
     wget -O ~/.zshrc https://raw.githubusercontent.com/Thrimbda/shell-set-up/master/.zshrc
+    wget -O ~/.p10k.zsh https://raw.githubusercontent.com/Thrimbda/shell-set-up/master/.p10k.zsh
   else
     printf "${YELLOW}I don't know where did you get this script.${NORMAL} Please install curl or wget first!\n"
     exit
