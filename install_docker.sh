@@ -89,7 +89,7 @@ main() {
 
   if [ ! -d "$POWERLEVEL10K" ]; then
     printf "${BLUE}install theme powerlevel10k into your oh-my-zsh environment${NORMAL}\n"
-    env git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $$POWERLEVEL10K || {
+    env git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $POWERLEVEL10K || {
       printf "Error: git clone of oh-my-zsh repo failed\n"
       exit 1
     }
