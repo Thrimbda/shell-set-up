@@ -84,7 +84,7 @@ main() {
 
   # install theme
   if [ ! -n "$POWERLEVEL10K" ]; then
-    POWERLEVEL9K=$ZSH/custom/themes/powerlevel10k
+    POWERLEVEL10K=$ZSH/custom/themes/powerlevel10k
   fi
 
   if [ ! -d "$POWERLEVEL10K" ]; then
