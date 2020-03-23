@@ -58,7 +58,7 @@ POWERLEVEL9K_TIME_BACKGROUND='blue'
 
 # Items
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon context dir virtualenv vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs time battery)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vi_mode status background_jobs time battery)
 
 # plugins
 plugins=(
