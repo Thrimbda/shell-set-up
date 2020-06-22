@@ -1543,11 +1543,11 @@
   # make custom transient prompt with time stamp here.
   function p10k-on-pre-prompt() {
       # [[ $P9K_TTY == old ]] && p10k display 'empty_line'=show '2/right/time'=hide
-      p10k display '1|*/left_frame|2/right/ip'=show '2/(left/prompt_char|right/(time|dir|status|battery))'=hide
+      p10k display '1|*/left_frame|2/right/ip'=show '2/(left/prompt_char|right/(time|dir|status))'=hide
   }
 
   function p10k-on-post-prompt() {
-      p10k display '1|*/left_frame|2/right/ip'=hide '2/(left/prompt_char|right/(time|dir|status|battery))'=show
+      p10k display '1|*/left_frame|2/right/ip'=hide '2/(left/prompt_char|right/(time|dir|status))'=show
   }
 
   # Instant prompt mode.

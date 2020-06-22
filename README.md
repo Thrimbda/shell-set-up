@@ -26,3 +26,4 @@ finally, **Do remember install an powerline+awesome([nerd](https://github.com/ry
 
 - [ ] auto update check.
 - [ ] update plugins and themes if new versions has been found (or freeze a set of versions when commit?)
+- [ ] make transient prompt eazier to config, e.g. elements of retired prompt only, both retired and current prompt.
